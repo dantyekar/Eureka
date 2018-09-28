@@ -7,8 +7,41 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Product.delete_all
-Product.create(name: 'Steaks',
-               description: 'Delicious steaks',
+Product.create(name: 'Steaks1',
+               description: 'Delicious steaks1',
+               price: 12.50,
+               image_url: 'default_food.jpg')
+
+Product.create(name: 'Steaks2',
+               description: 'Delicious steaks2',
+               price: 12.50,
+               image_url: 'default_food.jpg')
+Product.create(name: 'Steaks3',
+               description: 'Delicious steaks3',
+               price: 12.50,
+               image_url: 'default_food.jpg')
+Product.create(name: 'Steaks4',
+               description: 'Delicious steaks4',
+               price: 12.50,
+               image_url: 'default_food.jpg')
+Product.create(name: 'Steaks5',
+               description: 'Delicious steaks5',
+               price: 12.50,
+               image_url: 'default_food.jpg')
+Product.create(name: 'Steaks6',
+               description: 'Delicious steaks6',
+               price: 12.50,
+               image_url: 'default_food.jpg')
+Product.create(name: 'Steaks7',
+               description: 'Delicious steaks7',
+               price: 12.50,
+               image_url: 'default_food.jpg')
+Product.create(name: 'Steaks8',
+               description: 'Delicious steaks8',
+               price: 12.50,
+               image_url: 'default_food.jpg')
+Product.create(name: 'Steaks9',
+               description: 'Delicious steaks9',
                price: 12.50,
                image_url: 'default_food.jpg')
 
