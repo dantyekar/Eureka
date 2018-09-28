@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   %body
     = render 'layouts/top_header'
-    = yield
-    = render 'layouts/footer'
-    = debug(params) if Rails.env.development?
+    .container
+      - flash.each do |message_type, message|
+        = content_tag(:div, message, class: "alert alert-#{message_type}")
+      = yield
+      = render 'layouts/footer'
+      = debug(params) if Rails.env.development?
