@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :order_items
+  resources :carts
   get 'sessions/new'
   get 'home/index'
   
