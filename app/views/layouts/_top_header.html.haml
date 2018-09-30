@@ -15,20 +15,25 @@
             = link_to home_path, class: 'nav-link texty' do
               = content_tag(:span, '·', class: 'middot')
               HOME
-          / - if current_user
-          /   %li.nav-item.dropdown
-          /     %a.dropdown-toggle.texty.nav-link{ 'data-toggle' => 'dropdown', :href => '#' }
-          /       Account
-          /     %ul.dropdown-menu.texty
-          /       %li= link_to 'Profile', current_user
-          /       %li= link_to 'Settings', edit_user_path(current_user)
-          /       %li
-          /         = link_to 'Log out', logout_path, method: :delete
-          / - else
-          /   %li.nav-item
-          /     = link_to 'Log in', login_path, :class =>'nav-link texty'
-          /   %li.nav-item
-          /     = link_to 'Sign up', new_user_path, :class =>'nav-link texty'
+          - if logged_in?
+            %li.nav-item.dropdown
+              %a.dropdown-toggle.texty.nav-link{ 'data-toggle' => 'dropdown', :href => '#' }
+                Account
+              %ul.dropdown-menu.texty
+                %li= link_to 'Profile', current_user
+                %li= link_to 'Settings', edit_user_path(current_user)
+                %li
+                  = link_to 'Log out', logout_path, method: :delete
+            - if current_user.admin? && !current_user?(@user)
+              %li.nav-item.active
+                = link_to home_path, class: 'nav-link texty' do
+                  = content_tag(:span, '·', class: 'middot')
+                  Dashboard
+          - else
+            %li.nav-item
+              = link_to 'Log in', login_path, :class =>'nav-link texty'
+            %li.nav-item
+              = link_to 'Sign up', new_user_path, :class =>'nav-link texty'
   .jumbotron.text-center
     %div
       %h1.title.texty Eureka Caffee

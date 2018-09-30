@@ -55,7 +55,8 @@ User.create(name: "test2",
             password: "parola1234",
             password_confirmation: "parola1234")
 
-User.create(name: "test",
+User.create(name: "admin",
             email: "admin@test.com",
             password: "parola1234",
-            password_confirmation: "parola1234")
+            password_confirmation: "parola1234",
+            admin: true)

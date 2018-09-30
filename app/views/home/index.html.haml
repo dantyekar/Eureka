@@ -1,6 +1,7 @@
 = render 'layouts/sorting_bar'
 - if notice
   %p#notice= notice
+%br
 .food-contents
   .container-fluid.container.food-table
     - @products.each_slice(4) do |product|
