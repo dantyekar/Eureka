@@ -16,7 +16,7 @@
               = content_tag(:span, '·', class: 'middot')
               HOME
           %li.nav-item
-            = link_to carts_path, class: 'nav-link texty', id: 'cart'  do
+            = link_to home_path, class: 'nav-link texty', id: 'cart'  do
               = content_tag(:span, '·', class: 'middot')
               %i.fas.fa-shopping-cart              
           - if logged_in?

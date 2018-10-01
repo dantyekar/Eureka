@@ -14,4 +14,4 @@
                 %h4.card-title= prod.name
                 %p.card-text= prod.description
                 %p#price-tag.card-text= prod.price
-                = button_to 'Add to Cart', order_items_path(:product_id => prod)
+                = button_to 'Add to Cart', order_items_path(product_id: prod)

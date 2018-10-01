@@ -2,5 +2,5 @@
 .row.justify-content-center
   .ul
     - @cart.order_items.each do |item|
-      .li= item.product.name
+      .li= "#{item.quantity}x #{item.product.name}"
 = link_to 'Back', carts_path
