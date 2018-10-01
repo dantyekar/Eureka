@@ -1,6 +1,6 @@
 .service-header
   .div-nav
-    %nav.navbar.navbar-static-top.navbar-expand-lg.navbar-light
+    %nav.navbar.navbar-static-top.navbar-expand-lg.px-5
       %div
         = image_tag('coffee.jpg', class: "d-inline-block align-top logo-img")
         = link_to home_path, id: 'logo-text', class: 'navbar-brand home-page-text' do
@@ -8,14 +8,15 @@
           %br/
           CAFFEE
       %button.navbar-toggler{ 'aria-controls' => 'navbar-nav', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation', 'data-target' => '#navbar-nav', 'data-toggle' => 'collapse', :type => 'button' }
-        %span.navbar-toggler-icon
+        %i.fas.fa-chevron-circle-down
       #navbar-nav.collapse.navbar-collapse.bg-custom
-        %ul#menu-top.navbar-nav.ml-auto
+        %ul#menu-top.navbar-nav.ml-auto          
           %li.nav-item.active
             = link_to home_path, class: 'nav-link home-page-text' do
-              %span.middot ·
               HOME
           - if logged_in?
+            %li.nav-item.active
+              %span.middot.nav-link ·
             %li.nav-item.dropdown
               %a.dropdown-toggle.home-page-text.nav-link{ 'data-toggle' => 'dropdown', :href => '#' }
                 Account
@@ -26,15 +27,20 @@
                   = link_to 'Log out', logout_path, method: :delete
             - if current_user.admin? && !current_user?(@user)
               %li.nav-item.active
+                %span.middot.nav-link ·
+              %li.nav-item.active
                 = link_to home_path, class: 'nav-link home-page-text' do
-                  %span.middot ·
                   Dashboard
           - else
+            %li.nav-item.active
+              %span.middot.nav-link ·
             %li.nav-item
               = link_to 'Log in', login_path, :class =>'nav-link home-page-text'
+            %li.nav-item.active
+              %span.middot.nav-link ·
             %li.nav-item
               = link_to 'Sign up', new_user_path, :class =>'nav-link home-page-text'
-  .jumbotron.text-center
+  .jumbotron.text-center.my-0.no-background-color
     %div
       %h1.title.home-page-text Eureka Caffee
       - 2.times do
