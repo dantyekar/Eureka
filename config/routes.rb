@@ -10,12 +10,13 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   namespace :administrator do
+    resources :users, only: [:index, :destroy]
     resources :products
   end
 
   get 'administrator' => 'administrator/base#index', as: :dashboard
 
-  resources :users, except: :destroy
+  resources :users
 
   root to: 'home#index', as: 'home'
 end
