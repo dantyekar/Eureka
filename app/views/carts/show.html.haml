@@ -3,4 +3,6 @@
   .ul
     - @cart.order_items.each do |item|
       .li= "#{item.quantity}x #{item.product.name}"
-= link_to 'Back', carts_path
+= button_to 'Empty cart', @cart, class: "btn btn-primary", :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Back', carts_path, class: "btn btn-primary"
+
