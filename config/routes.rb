@@ -9,8 +9,13 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  resources :products
-  resources :users
+  namespace :administrator do
+    resources :products
+  end
+
+  get 'administrator' => 'administrator/base#index', as: :dashboard
+
+  resources :users, except: :destroy
 
   root to: 'home#index', as: 'home'
 end

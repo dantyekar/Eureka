@@ -33,6 +33,10 @@ module SessionsHelper
   end
 
   def authorize_admin
-    current_user.admin?
+    if logged_in?
+      redirect_to(home_path) unless current_user.admin?
+    else
+      redirect_to(home_path)
+    end
   end
 end
