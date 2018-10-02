@@ -1,12 +1,14 @@
+@import 'variables';
+
 footer {
   margin-top: 5px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
+  border-top: 1px solid $light-gray;
+  color: $dark-gray;
   a {
-    color: #555;
+    color: $darker-gray;
     &:hover {
-      color: #222;
+      color: $black;
     }
   }
   small {

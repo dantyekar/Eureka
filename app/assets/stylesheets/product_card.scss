@@ -1,8 +1,10 @@
+@import 'variables';
+
 #price-tag {
   letter-spacing: 2px;
   font-size: 9px;
   font-weight: 900;
-  color:orange;
+  color: $orange;
   padding-top: 25%
 }
 .card {
@@ -22,7 +24,7 @@
 }
 .card-body .card-text {
   font-size: 12px;
-  color:gray;
+  color: $gray;
 }
 .card-img-top{
   border-radius:10px 10px 0 0;
@@ -35,7 +37,7 @@
 }
 .card-body .price{
   font-size:16px;
-  color:orange;
+  color: $orange;
 }
 .card-text {
   margin-bottom: 5px;

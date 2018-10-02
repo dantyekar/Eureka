@@ -1,9 +1,11 @@
+@import 'variables';
+
 #navbar-nav ul li {
   text-align: center;
   text-transform: uppercase;
 }
 .home-page-text {
-  color: white;
+  color: $white;
   font-weight: 500;
 }
 #logo-text {
@@ -41,7 +43,7 @@
   transform: scale(1.1);
 }
 .fa-utensils {
-  color: white;
+  color: $white;
 }
 @media (max-width: 992px) {
   .bg-custom {
@@ -57,7 +59,7 @@
   }
 }
 .middot {
-  color: orange;
+  color: $orange;
   border: 0;
 }
 .service-header {
@@ -67,7 +69,7 @@
   width: 100%;
 }
 .fa-chevron-circle-down{
-  color: white;
+  color: $white;
 }
 .zig-zag-line-filter {
   filter: invert(100%);
