@@ -31,4 +31,8 @@ module SessionsHelper
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
   end
+
+  def authorize_admin
+    current_user.admin?
+  end
 end

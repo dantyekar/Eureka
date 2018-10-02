@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Eureka Caffee!"
       redirect_to @user
     else
+      flash.now[:danger] = 'Please verify the information and try again.'
       render 'new'
     end
   end

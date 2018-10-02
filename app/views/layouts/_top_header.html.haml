@@ -5,7 +5,7 @@
         = image_tag('coffee.jpg', class: "d-inline-block align-top logo-img")
         = link_to home_path, id: 'logo-text', class: 'navbar-brand home-page-text' do
           EUREKA
-          %br/
+          %br
           CAFFEE
       %button.navbar-toggler{ 'aria-controls' => 'navbar-nav', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation', 'data-target' => '#navbar-nav', 'data-toggle' => 'collapse', :type => 'button' }
         %i.fas.fa-chevron-circle-down
@@ -49,4 +49,4 @@
       - 2.times do
         = image_tag 'lines.png', class: 'zig-zag-line-filter'
       %div
-      %p.description.home-page-text The go-to place for ordering food!
+      %h4.description.home-page-text The go-to place for ordering food!
