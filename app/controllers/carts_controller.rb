@@ -54,11 +54,10 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart.destroy
-    respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  @cart = current_cart 
+  @cart.destroy 
+  session[:cart_id] = nil
+  redirect_to(home_url, :notice => 'Your cart is currently empty') 
   end
 
   private
