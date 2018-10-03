@@ -34,6 +34,11 @@
   margin: 0;
 }
 
+.dropdown-menu {
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .sorting-nav a:hover, .dropdown:hover .dropbtn {
   background-color: $gray;
   border-radius: 5px;

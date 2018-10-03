@@ -1,12 +1,6 @@
 .div-nav
   %nav.navbar.navbar-static-top.navbar-expand-lg.px-5
-    %div
-      = image_tag('coffee.jpg', class: 'd-inline-block align-top logo-img')
-      = link_to home_path, id: 'logo-text', class: 'navbar-brand home-page-text' do
-        %div
-          EUREKA
-        %div
-          CAFFEE
+    = render 'layouts/top_header/navbar/logo'
     %button.navbar-toggler{ 'aria-controls' => 'navbar-nav', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation', 'data-target' => '#navbar-nav', 'data-toggle' => 'collapse', :type => 'button' }
       %i.fas.fa-chevron-circle-down
     #navbar-nav.collapse.navbar-collapse.bg-custom
