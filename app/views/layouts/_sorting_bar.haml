@@ -4,10 +4,6 @@
       %button.dropbtn
         Category
         %i.fa.fa-angle-down
-      / .dropdown-content
-      /   - @categories = @categories.nil? ? Category.all : @categories
-      /   - @categories.each do |category|
-      /     %a{:href => category_path(category)}= category.title
     .dropdown
       %button.dropbtn
         Sorting

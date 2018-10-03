@@ -1,6 +1,7 @@
 .sorting-nav {
   background-color: $darker-gray;
 }
+
 .sorting-nav a {
   float: left;
   font-size: 16px;
@@ -9,6 +10,7 @@
   padding: 14px 16px;
   text-decoration: none;
 }
+
 .dropdown {
   border-radius: 5px;
   float: left;
@@ -16,6 +18,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
+
 .dropdown .dropbtn {
   letter-spacing: 2px;
   font-size: 9px;
@@ -30,13 +33,16 @@
   font-family: inherit;
   margin: 0;
 }
+
 .sorting-nav a:hover, .dropdown:hover .dropbtn {
   background-color: $gray;
   border-radius: 5px;
 }
+
 .sorting-nav a, .dropdown .dropbtn {
   background-color: none;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -44,6 +50,7 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
+
 .dropdown-content a {
   float: none;
   color: $black;
@@ -52,18 +59,23 @@
   display: block;
   text-align: left;
 }
+
 .dropdown-content a:hover {
   background-color: $gray;
 }
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 .fa-angle-down {
   color: $orange;
 }
+
 div.slidecontainer {
   height: 10px;
 }
+
 div.range-slider {
   position: relative;
   width: 200px;
@@ -71,6 +83,7 @@ div.range-slider {
   float: left;
   text-align: center;
 }
+
 div.range-slider input[type="range"] {
   pointer-events: none;
   position: absolute;
@@ -90,6 +103,7 @@ div.range-slider input[type="range"] {
   margin: 0;
   padding: 0;
 }
+
 div.range-slider input[type="range"]::-webkit-slider-thumb {
   pointer-events: all;
   position: relative;
@@ -105,6 +119,7 @@ div.range-slider input[type="range"]::-webkit-slider-thumb {
   background-image: -webkit-radial-gradient(black 20%, white 20%, white 98%, black 98%);
   background-image: radial-gradient(black 20%, white 20%, white 98%, black 98%);
 }
+
 div.range-slider input[type="range"]::-moz-range-thumb {
   pointer-events: all;
   position: relative;
@@ -117,6 +132,7 @@ div.range-slider input[type="range"]::-moz-range-thumb {
   border-radius: 14px;
   background-image: radial-gradient(black 20%, white 20%, white 98%, black 98%);
 }
+
 div.range-slider input[type="range"]::-ms-thumb {
   pointer-events: all;
   position: relative;
@@ -128,20 +144,24 @@ div.range-slider input[type="range"]::-ms-thumb {
   border: 2px black;
   background-image: radial-gradient(black 20%, white 20%, white 98%, black 98%);
 }
+
 div.range-slider input[type=range]::-moz-range-track {
   position: relative;
   z-index: -1;
   background-color: $black;
   border: 0;
 }
+
 div.range-slider input[type=range]:last-of-type::-moz-range-track {
   -moz-appearance: none;
   background: none transparent;
   border: 0;
 }
+
 div.range-slider input[type=range]::-moz-focus-outer {
   border: 0;
 }
+
 .score {
   display: inline-flex;
   flex-wrap: wrap;
