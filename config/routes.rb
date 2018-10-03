@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :order_items
-  resources :carts
   get 'sessions/new'
   get 'home/index'
   
@@ -11,7 +9,14 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  resources :products
+  namespace :administrator do
+    resources :users, only: [:index, :destroy]
+    resources :products
+  end
+  get 'administrator' => 'administrator/base#index', as: :dashboard
+
+  resources :carts, only: [:show, :destroy]
+  resources :order_items
   resources :users
 
   root to: 'home#index', as: 'home'

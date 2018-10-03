@@ -1,17 +1,16 @@
 = render 'layouts/sorting_bar'
-- if notice
-  %p#notice= notice
 %br
 .food-contents
   .container-fluid.container.food-table
-    - @products.each_slice(4) do |product|
+    - @products.each_slice(4) do |product_slice|
       .row.food-row
-        - product.each do |prod|
-          .col-md-3.food-column
+        - product_slice.each do |product|
+          .col-md-3.food-column.my-0.mx-auto.p-0
             .card
-              .card-img-top= image_tag prod.image_url, id: 'product-image'
+              .card-img-top= image_tag product.image_url, id: 'product-image'
               .card-body
-                %h4.card-title= prod.name
-                %p.card-text= prod.description
-                %p#price-tag.card-text= prod.price
-                = button_to 'Add to Cart', order_items_path(product_id: prod)
+                %h4.card-title= product.name
+                %p.card-text= product.description
+                %p#price-tag.card-text= product.price
+                = button_to 'Add to Cart', order_items_path(product_id: product)
+

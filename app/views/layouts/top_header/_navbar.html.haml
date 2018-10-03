@@ -1,0 +1,16 @@
+.div-nav
+  %nav.navbar.navbar-static-top.navbar-expand-lg.px-5
+    = render 'layouts/top_header/navbar/logo'
+    %button.navbar-toggler{ 'aria-controls' => 'navbar-nav', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation', 'data-target' => '#navbar-nav', 'data-toggle' => 'collapse', :type => 'button' }
+      %i.fas.fa-chevron-circle-down
+    #navbar-nav.collapse.navbar-collapse.bg-custom
+      %ul#menu-top.navbar-nav.ml-auto          
+        %li.nav-item.active
+          = link_to home_path, class: 'nav-link home-page-text' do
+            HOME
+        - if logged_in?
+          = render 'layouts/top_header/navbar/logged_in_panel'
+          - if current_user.admin? && !current_user?(@user)
+            = render 'layouts/top_header/navbar/admin_panel'
+        - else
+          = render 'layouts/top_header/navbar/registration'

@@ -1,0 +1,14 @@
+%h2 Your Cart
+.container.text-center
+  %table.table.table-stripped
+    - @cart.order_items.each do |item|
+      %tr.row
+        %td.col-sm-1.offset-sm-3
+          = item.quantity
+          ×
+        %td.col-sm-3= item.product.name
+        %td.col-sm-1.item_price= number_to_currency(item.total_price)
+    %tr.row
+      %td.col-sm-1.offset-sm-3 Total
+      %td.col-sm-1.offset-sm-3= number_to_currency(@cart.total_price)
+  = button_to 'Empty cart', @cart, class:"btn btn-primary", :method => :delete, :confirm => 'Are you sure?'
