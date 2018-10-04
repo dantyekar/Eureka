@@ -8,6 +8,11 @@
         %li.nav-item.active
           = link_to home_path, class: 'nav-link home-page-text' do
             HOME
+        %li.nav-item.active
+          %span.middot.nav-link ·
+        %li.nav-item.active
+          = link_to cart_path(id: session[:cart_id]), class: 'nav-link' do
+            %i.fas.fa-shopping-cart
         - if logged_in?
           = render 'layouts/top_header/navbar/logged_in_panel'
           - if current_user.admin? && !current_user?(@user)

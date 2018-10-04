@@ -12,12 +12,14 @@ Rails.application.routes.draw do
   namespace :administrator do
     resources :users, only: [:index, :destroy]
     resources :products
+    resources :orders, only: [:index]
   end
   get 'administrator' => 'administrator/base#index', as: :dashboard
 
   resources :carts, only: [:show, :destroy]
   resources :order_items
   resources :users
+  resources :orders
 
   root to: 'home#index', as: 'home'
 end

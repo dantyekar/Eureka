@@ -6,11 +6,7 @@ class OrderItemsController < ApplicationController
     product = Product.find(params[:product_id])
     @order_item = @cart.add_product(product.id)
     
-    if @order_item.save
-      redirect_to @order_item.cart
-    else
-      redirect_to home_path, notice: 'An error occurred while processing your request'
-    end
+    redirect_to home_path, notice: 'An error occurred while processing your request' unless @order_item.save
   end
 
   def destroy

@@ -1,0 +1,17 @@
+%h1 New order
+.container.text-center
+  %table.table.table-striped
+    - @cart.order_items.each do |item|
+      %tr.row
+        %td.col-sm-1.offset-sm-3= "#{item.quantity}x"
+        %td.col-sm-3= item.product.name
+        %td.col-sm-1.item_price= number_to_currency(item.total_price)
+    %tr.row.font-weight-bold
+      %td.col-sm-1.offset-sm-3 Total
+      %td.col-sm-1.offset-sm-3= number_to_currency(@cart.total_price)
+.row.col-md-12.justify-content-center
+  = form_for @order do |f|
+    = f.hidden_field :user_id, value: current_user.id
+    = f.submit 'Confirm & send!', class:"btn btn-primary"
+
+= link_to 'Back', orders_path
