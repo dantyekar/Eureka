@@ -18,9 +18,9 @@
           %td= product.description
           %td= product.price
           %td= image_tag(product.image_url, class: 'w-75')
-          %td= link_to 'Show', administrator_product_path(product)
-          %td= link_to 'Edit', edit_administrator_product_path(product)
-          %td= link_to 'Destroy', administrator_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }
+          %td= link_to 'Show', admin_product_path(product)
+          %td= link_to 'Edit', edit_admin_product_path(product)
+          %td= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }
 
 
-= link_to 'New Product', new_administrator_product_path
+= link_to 'New Product', new_admin_product_path

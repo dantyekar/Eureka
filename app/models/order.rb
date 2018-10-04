@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
-  has_many :order_items
-  belongs_to :user
   enum status: [:pending, :completed]
+  
+  belongs_to :user
+  has_many :order_items
   
   def add_order_items_from_cart(cart) 
     cart.order_items.each do |item|

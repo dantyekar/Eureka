@@ -1,10 +1,9 @@
 class OrderItemsController < ApplicationController
-  before_action :set_order_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_order_item, only: :destroy
 
   def create
     @cart = current_cart
-    product = Product.find(params[:product_id])
-    @order_item = @cart.add_product(product.id)
+    @order_item = @cart.add_product(params[:product_id])
     
     redirect_to home_path, notice: 'An error occurred while processing your request' unless @order_item.save
   end
@@ -15,6 +14,7 @@ class OrderItemsController < ApplicationController
   end
 
   private
+
     def set_order_item
       @order_item = OrderItem.find(params[:id])
     end
@@ -22,4 +22,5 @@ class OrderItemsController < ApplicationController
     def order_item_params
       params.require(:order_item).permit(:product_id, :cart_id)
     end
+
 end

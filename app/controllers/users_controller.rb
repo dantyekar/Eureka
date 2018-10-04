@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
-  before_action :authorize_user, only: [:index, :edit, :update, :destroy]
-  before_action :check_current_user,   only: [:show, :edit, :update]
-  before_action :authorize_admin,     only: :destroy
+  before_action :authorize_user, only: [:edit, :update, :destroy]
+  before_action :check_current_user, only: [:show, :edit, :update]
+  before_action :authorize_admin, only: :destroy
   before_action :set_user, only: [:edit, :update]
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
@@ -23,12 +22,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = 'Profile updated'
       redirect_to @user
@@ -63,4 +59,5 @@ class UsersController < ApplicationController
     def authorize_admin
       redirect_to(home_path) unless current_user.admin?
     end
+
 end

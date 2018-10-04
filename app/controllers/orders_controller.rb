@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def new
     if current_user.present?
@@ -20,7 +19,7 @@ class OrdersController < ApplicationController
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      redirect_to(home_url, notice: 'Thank you for your order.')
+      redirect_to(home_url, notice: 'Your order has been sent!')
     else
       redirect_to(home_url, notice: 'Something went wrong.. :(')
     end
@@ -28,18 +27,16 @@ class OrdersController < ApplicationController
 
   def update
     if @order.update(status: order_params[:status])
-      redirect_to administrator_orders_path, notice: 'Order was successfully updated.'
+      redirect_to admin_orders_path, notice: 'Order was successfully updated.'
     else
-      redirect_to administrator_orders_path, notice: 'An error occurred.'
+      redirect_to admin_orders_path, notice: 'An error occurred.'
     end
   end
 
   private
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
     def order_params
       params.require(:order).permit(:user_id, :status)
     end
+
 end

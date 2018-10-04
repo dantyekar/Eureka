@@ -13,5 +13,3 @@
   = form_for @order do |f|
     = f.hidden_field :user_id, value: current_user.id
     = f.submit 'Confirm & send!', class:"btn btn-primary"
-
-= link_to 'Back', orders_path
