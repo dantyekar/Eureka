@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  namespace :administrator do
+  namespace :admin do
     resources :users, only: [:index, :destroy]
     resources :products
   end
 
-  get 'administrator' => 'administrator/base#index', as: :dashboard
+  get 'admin' => 'admin/base#index', as: :dashboard
 
   resources :users
 

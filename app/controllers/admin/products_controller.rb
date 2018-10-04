@@ -1,25 +1,23 @@
-class Administrator::ProductsController < Administrator::BaseController
+class Admin::ProductsController < Admin::BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @product = Product.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to [:administrator, @product], notice: 'Product was successfully created.'
+      redirect_to [:admin, @product], notice: 'Product was successfully created.'
     else
       render :new
     end
@@ -27,7 +25,7 @@ class Administrator::ProductsController < Administrator::BaseController
 
   def update
     if @product.update(product_params)
-      redirect_to [:administrator, @product], notice: 'Product was successfully updated.'
+      redirect_to [:admin, @product], notice: 'Product was successfully updated.'
     else
       render :edit
     end
@@ -35,10 +33,11 @@ class Administrator::ProductsController < Administrator::BaseController
 
   def destroy
     @product.destroy
-    redirect_to administrator_products_url, notice: 'Product was successfully destroyed.'
+    redirect_to admin_products_url, notice: 'Product was successfully destroyed.'
   end
 
   private
+
     def set_product
       @product = Product.find(params[:id])
     end
@@ -46,4 +45,5 @@ class Administrator::ProductsController < Administrator::BaseController
     def product_params
       params.require(:product).permit(:name, :description, :price, :image_url)
     end
+    
 end
