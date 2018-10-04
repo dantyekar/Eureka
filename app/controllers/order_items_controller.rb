@@ -15,7 +15,7 @@ class OrderItemsController < ApplicationController
 
   def destroy
     @order_item.destroy
-      format.html { redirect_to order_items_url, notice: 'Order item was successfully destroyed.' }
+    redirect_to cart_path(@cart)
   end
 
   private

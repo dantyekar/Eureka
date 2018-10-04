@@ -8,6 +8,7 @@
           ×
         %td.col-sm-3= item.product.name
         %td.col-sm-1.item_price= number_to_currency(item.total_price)
+        %td.col-sm-1= button_to 'clear', order_item_path(item.id), class: "btn btn-warning", :method => :delete, :confirm => 'Are you sure?'
     %tr.row
       %td.col-sm-1.offset-sm-3 Total
       %td.col-sm-1.offset-sm-3= number_to_currency(@cart.total_price)
