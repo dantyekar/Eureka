@@ -1,0 +1,27 @@
+.col-md-6.offset-md-3.w-50
+  %h2 All orders!
+  - @orders.each do |order|
+    %br
+    %table.table-striped
+      %thead
+        %tr
+          %th.col-md-2= "Order ##{order.id}"
+          %th.col-md-2
+          %th.col-md-2
+          %th
+          %th
+        %tbody
+          - order.order_items.each do |order_item|
+            %tr
+              %td.col-md-2= "##{order_item.product.id} #{order_item.product.name}"
+              %td.col-md-2= "#{order_item.quantity}x"
+              %td.col-md-2= "$#{order_item.total_price}"
+              %td
+              %td
+          %tr.font-weight-bold
+            %td.col-md-4= "made by: #{order.user.name}"
+            %td.col-md-2= "Total: #{order.total_price}"
+            %td.col-md-2= "Status: #{order.status.capitalize}"
+            = form_for order, method: :patch  do |f|
+              %td.col-md-1= f.select :status, [:pending, :completed], selected: order.status
+              %td.col-md-1= f.submit 'Confirm'
