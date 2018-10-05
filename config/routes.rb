@@ -17,9 +17,9 @@ Rails.application.routes.draw do
   get 'admin' => 'admin/base#index', as: :dashboard
 
   resources :carts, only: [:show, :destroy]
+  resources :orders
   resources :order_items
   resources :users
-  resources :orders
 
   root to: 'home#index', as: 'home'
 end

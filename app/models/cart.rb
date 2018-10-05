@@ -6,7 +6,7 @@ class Cart < ApplicationRecord
     if current_item
       current_item.quantity += 1
     else
-      current_item = order_items.build(:product_id => product_id)
+      current_item = order_items.build(product_id: product_id)
     end
     current_item
   end
@@ -14,4 +14,5 @@ class Cart < ApplicationRecord
   def total_price
     order_items.to_a.sum { |item| item.total_price }
   end
+  
 end
