@@ -26,8 +26,9 @@ class OrdersController < ApplicationController
   end
 
   def update
+    @order = Order.find(params[:id])
     if @order.update(status: order_params[:status])
-      redirect_to admin_orders_path, notice: 'Order was successfully updated.'
+      redirect_to admin_orders_path, notice: "Order ##{@order.id} was successfully updated."
     else
       redirect_to admin_orders_path, notice: 'An error occurred.'
     end
