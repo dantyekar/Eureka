@@ -1,0 +1,88 @@
+#navbar-nav ul li {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.home-page-text {
+  color: $white;
+  font-weight: 500;
+}
+
+#logo-text {
+  padding: 4px 5px;
+  border: 0px;
+  line-height: 12px;
+  height: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.logo-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+#menu-top li {
+  line-height: 8px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  transition: transform .2s;
+}
+
+.title {
+  font-weight: 525;
+  line-height: 20px;
+  border: 0;
+}
+
+#menu-top li:hover {
+  transform: scale(1.2);
+}
+
+.navbar-toggler {
+  transition: transform .2s;
+}
+
+.navbar-toggler:hover {
+  transform: scale(1.1);
+}
+
+.fa-utensils {
+  color: $white;
+}
+
+@include media-breakpoint-down(md) {
+  .bg-custom {
+    background-image: url('bg-dropdown.jpg');
+    background-size: cover;
+    background-position: center center;
+    border-radius: 0 0 15px 15px;
+  }
+  .middot {
+    height: 0;
+    display: none;
+  }
+}
+
+.middot {
+  color: $orange;
+  border: 0;
+}
+
+.main-header {
+  background-image: url('coffee-shop.jpg');
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+}
+
+.fa-chevron-circle-down{
+  color: $white;
+}
+
+.zig-zag-line-filter {
+  filter: invert(100%);
+  width: 50px;
+}

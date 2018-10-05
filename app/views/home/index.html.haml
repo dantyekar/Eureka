@@ -1,0 +1,14 @@
+= render 'layouts/sorting_bar'
+%br
+.food-contents
+  .container-fluid.container.food-table
+    - @products.each_slice(4) do |product_slice|
+      .row.food-row
+        - product_slice.each do |product|
+          .col-sm-3.food-column.my-0.mx-0.w-50.p-0
+            .card
+              .card-img-top= image_tag product.image_url, id: 'product-image'
+              .card-body
+                %h4.card-title= product.name
+                %p.card-text= product.description
+                %p#price-tag.card-text= product.price
