@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
 
   def new
     if current_user.present?
-      @cart = current_cart
       @order = Order.new
     else
       flash[:danger]= 'Please log in.'
@@ -10,11 +9,9 @@ class OrdersController < ApplicationController
     end
   end
 
-  def create
-    @cart = current_cart
-  
+  def create  
     @order = Order.new(order_params)
-    @order.add_order_items_from_cart(current_cart)
+    @order.add_order_items_from_cart(@cart)
 
     if @order.save
       Cart.destroy(session[:cart_id])
