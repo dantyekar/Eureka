@@ -4,10 +4,8 @@
     %thead
       %tr
         %th Name
-        %th Description
         %th Price
         %th.w-25 Image
-        %th
         %th
         %th
 
@@ -15,10 +13,8 @@
       - @products.each do |product|
         %tr
           %td= product.name
-          %td= product.description
           %td= product.price
           %td= image_tag(product.image_url, class: 'w-75')
-          %td= link_to 'Show', admin_product_path(product)
           %td= link_to 'Edit', edit_admin_product_path(product)
           %td= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }
 
