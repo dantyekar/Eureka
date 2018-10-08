@@ -1,17 +1,13 @@
 class OrdersController < ApplicationController
+  before_action :authorize_user, only: [:new, :create, :update]
 
   def new
-    if current_user.present?
-      @order = Order.new
-    else
-      flash[:danger]= 'Please log in.'
-      redirect_to login_path
-    end
+    @order = Order.new
   end
 
   def create  
     @order = Order.new(order_params)
-    @order.add_order_items_from_cart(@cart)
+    @order.add_order_items(@cart)
 
     if @order.save
       Cart.destroy(session[:cart_id])

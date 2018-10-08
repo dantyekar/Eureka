@@ -3,8 +3,11 @@ class OrderItemsController < ApplicationController
 
   def create
     @order_item = @cart.add_product(order_item_params[:product_id])
-    
-    redirect_to home_path, notice: 'An error occurred while processing your request' unless @order_item.save
+    if @order_item.save
+      flash.now[:notice] = 'Item added to cart'
+    else
+      redirect_to home_path, notice: 'An error occurred while processing your request'
+    end
   end
 
   def destroy

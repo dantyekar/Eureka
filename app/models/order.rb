@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
   
-  def add_order_items_from_cart(cart) 
+  def add_order_items(cart) 
     cart.order_items.each do |item|
       item.cart_id = nil
       order_items << item

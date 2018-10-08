@@ -15,7 +15,7 @@
             %i.fas.fa-shopping-cart
         - if logged_in?
           = render 'layouts/top_header/navbar/logged_in_panel'
-          - if current_user.admin? && !current_user?(@user)
+          - if current_user.admin?
             = render 'layouts/top_header/navbar/admin_panel'
         - else
           = render 'layouts/top_header/navbar/registration'

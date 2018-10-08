@@ -33,10 +33,14 @@ module SessionsHelper
   end
 
   def authorize_admin
-    if logged_in?
-      redirect_to(home_path) unless current_user.admin?
-    else
-      redirect_to(home_path)
+    redirect_to(home_path) unless logged_in? && current_user.admin?
+  end
+
+  def authorize_user
+    unless logged_in?
+      store_location
+      flash[:danger] = 'Please log in.'
+      redirect_to login_url
     end
   end
   
