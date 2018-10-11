@@ -2,4 +2,22 @@
   %aside.col-md-4
     %section.user_info
       %h1= @user.name
-      
+  .col-md-4.w-50
+    %h2 Your orders!
+    - @user.orders.each do |order|
+      %table.table-striped
+        %thead
+          %tr
+            %th.col-md-2= "Order ##{order.id}"
+            %th.col-md-2
+            %th.col-md-2
+          %tbody
+            - order.order_items.each do |order_item|
+              %tr
+                %td.col-md-2= "##{order_item.product.id} #{order_item.product.name}"
+                %td.col-md-2= "#{order_item.quantity}x"
+                %td.col-md-2= "$#{order_item.total_price}"
+            %tr.font-weight-bold
+              %td
+              %td.col-md-2= "Total: #{order.total_price}"
+              %td.col-md-2= "Status: #{order.status.capitalize}"

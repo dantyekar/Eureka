@@ -1,0 +1,5 @@
+.container.text-center
+  - if @cart.order_items.empty?
+    %h2 Your cart is currently empty!
+  - else
+    = render 'cart'

@@ -12,3 +12,5 @@
                 %h4.card-title= product.name
                 %p.card-text= product.description
                 %p#price-tag.card-text= product.price
+                = button_to 'Add to Cart', order_items_path(product_id: product)
+
